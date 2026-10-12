@@ -8,7 +8,8 @@ BIN="$HOME/.local/bin"
 echo "== System packages (needs your password)"
 if command -v pacman >/dev/null 2>&1; then
   # Arch / Omarchy (Hyprland): grim captures the screen, ydotool turns the wheel for auto-scroll
-  sudo pacman -S --needed --noconfirm tesseract tesseract-data-eng python python-gobject pyside6 \
+  # -Syu: sync the package database first (a fresh install has none) and stay fully upgraded, as Arch requires
+  sudo pacman -Syu --needed --noconfirm tesseract tesseract-data-eng python python-gobject pyside6 \
     gstreamer gst-plugins-base gst-plugin-pipewire grim ydotool xdotool
   if command -v systemctl >/dev/null 2>&1; then
     systemctl --user enable --now ydotool 2>/dev/null \
