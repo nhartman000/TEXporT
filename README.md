@@ -55,6 +55,8 @@ texport            # or open "TExporT" from your app launcher
 It installs the app to `~/.local/share/texport/app`, a `texport` launcher in `~/.local/bin`, and a desktop entry. Run it again to update. Your captures are kept in `~/.local/share/texport/sessions`.
 
 ## Omarchy / Hyprland
+**Install on Omarchy:** run `omarchy update` once first. Omarchy blocks direct `pacman -Syu`, and a fresh install has no package database yet. Then run `bash install.sh`.
+
 Omarchy runs Hyprland, which behaves differently from Ubuntu's GNOME, so TExporT has a Hyprland mode. It switches on automatically when it detects Hyprland:
 
 | | Ubuntu GNOME | Omarchy / Hyprland |

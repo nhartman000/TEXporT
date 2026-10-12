@@ -8,9 +8,19 @@ BIN="$HOME/.local/bin"
 echo "== System packages (needs your password)"
 if command -v pacman >/dev/null 2>&1; then
   # Arch / Omarchy (Hyprland): grim captures the screen, ydotool turns the wheel for auto-scroll
-  # -Syu: sync the package database first (a fresh install has none) and stay fully upgraded, as Arch requires
-  sudo pacman -Syu --needed --noconfirm tesseract tesseract-data-eng python python-gobject pyside6 \
-    gstreamer gst-plugins-base gst-plugin-pipewire grim ydotool xdotool
+  PKGS="tesseract tesseract-data-eng python python-gobject pyside6 gstreamer gst-plugins-base gst-plugin-pipewire grim ydotool xdotool"
+  if command -v omarchy >/dev/null 2>&1 || [ -d "$HOME/.local/share/omarchy" ]; then
+    # Omarchy manages system upgrades itself (`omarchy update`); never run pacman -Syu behind its back.
+    if [ ! -s /var/lib/pacman/sync/core.db ]; then
+      echo "Your package database hasn't been downloaded yet. Run this first, then run install.sh again:"
+      echo "    omarchy update"
+      exit 1
+    fi
+    sudo pacman -S --needed --noconfirm $PKGS
+  else
+    # plain Arch: sync the database and stay fully upgraded (Arch doesn't support partial upgrades)
+    sudo pacman -Syu --needed --noconfirm $PKGS
+  fi
   if command -v systemctl >/dev/null 2>&1; then
     systemctl --user enable --now ydotool 2>/dev/null \
       || echo "Note: start the ydotool service for auto-scroll (see README → Omarchy / Hyprland)."
