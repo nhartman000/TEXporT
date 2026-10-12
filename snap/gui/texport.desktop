@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=TExporT
+Comment=Scroll-capture text from any window, mark it, export an AI handoff
+Exec=texport
+Icon=${SNAP}/meta/gui/texport.png
+Terminal=false
+Categories=Utility;Office;
+Keywords=OCR;capture;export;AI;markers;MG8;

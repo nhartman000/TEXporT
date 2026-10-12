@@ -1,0 +1,32 @@
+TExporT — End User License Agreement
+
+Copyright (c) 2026 American Milestone Inc. All rights reserved.
+
+TExporT ("the Software") is proprietary software owned by American Milestone Inc.
+
+1. Grant. You may install and use the Software free of charge, for personal or
+   commercial purposes, on any number of your own devices.
+
+2. Restrictions. Except as expressly permitted by this agreement or by applicable
+   law, you may not copy, modify, distribute, sell, sublicense, or create derivative
+   works of the Software, and you may not redistribute it outside the official
+   distribution channels chosen by American Milestone Inc.
+
+3. Your content. Text you capture, your markers and your exports belong to you.
+   The Software works locally and does not transmit your content anywhere.
+
+4. Third-party components. The Software includes third-party components that are
+   licensed under their own terms (see THIRD_PARTY_NOTICES.md). Nothing in this
+   agreement limits your rights under those licenses. In particular, you may
+   replace the bundled Qt for Python (PySide6) libraries with a modified version,
+   as permitted by the GNU LGPL v3.
+
+5. MG8 formats. The MG8 file-family specifications that the Software writes
+   (.mg8, .gst, .g8son, .ork, .qson, .gitson) are published separately under the
+   MIT license at https://github.com/nhartman000. Files you export are yours.
+
+6. No warranty. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+   EXPRESS OR IMPLIED. IN NO EVENT SHALL AMERICAN MILESTONE INC. BE LIABLE FOR ANY
+   CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM THE USE OF THE SOFTWARE.
+
+7. Termination. This license ends automatically if you breach it.

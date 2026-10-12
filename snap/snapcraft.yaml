@@ -1,0 +1,65 @@
+name: texport
+title: TExporT
+base: core24
+version: '1.0.0'
+summary: Scroll-capture any window's text, mark what matters, export an AI handoff
+description: |
+  TExporT is a floating, see-through panel. You scroll a conversation (Claude
+  desktop, a browser, a PDF viewer, any app), and TExporT reads the text off the
+  screen as you go. It never clicks, types or scrolls for you.
+
+  Mark the lines or paragraphs that matter, then export Markdown + PDF. The
+  export tells the next AI exactly which passages it must not lose: a register
+  at the start and end, plus [[MARK]] tags in the full text.
+
+  MG8-ready: exports can include an MG8 execution unit. Verify… checks an AI's
+  answer with deterministic retention gates and writes an auditable .qson trace.
+license: Proprietary
+grade: stable
+confinement: strict
+icon: snap/gui/texport.png
+contact: https://americanmilestone.com
+website: https://github.com/nhartman000/mg8
+
+platforms:
+  amd64:
+
+apps:
+  texport:
+    command: bin/texport
+    desktop: meta/gui/texport.desktop
+    extensions: [gnome]
+    plugs: [home, desktop, desktop-legacy, wayland, x11, opengl, removable-media]
+    environment:
+      TESSDATA_PREFIX: $SNAP/usr/share/tesseract-ocr/5/tessdata
+      GST_PLUGIN_PATH: $SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/gstreamer-1.0
+      PYTHONPATH: $SNAP/lib/python3.12/site-packages:$SNAP/usr/lib/python3/dist-packages
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/blas:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/lapack:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:$LD_LIBRARY_PATH
+      PATH: $SNAP/usr/bin:$SNAP/bin:$PATH
+
+parts:
+  texport:
+    plugin: python
+    source: .
+    python-packages:
+      - PySide6-Essentials>=6.6,<6.9
+    stage-packages:
+      - tesseract-ocr
+      - tesseract-ocr-eng
+      - python3-gi
+      - gir1.2-gstreamer-1.0
+      - gir1.2-gst-plugins-base-1.0
+      - gstreamer1.0-plugins-base
+      - gstreamer1.0-pipewire
+      - libxcb-cursor0
+      - libxkbcommon-x11-0
+      - libxcb-icccm4
+      - libxcb-keysyms1
+      - libxcb-shape0
+      - libxcb-render-util0
+      - libxcb-image0
+    override-build: |
+      craftctl default
+      install -Dm644 snap/gui/texport.desktop $CRAFT_PART_INSTALL/meta/gui/texport.desktop
+      install -Dm644 LICENSE $CRAFT_PART_INSTALL/LICENSE
+      install -Dm644 THIRD_PARTY_NOTICES.md $CRAFT_PART_INSTALL/THIRD_PARTY_NOTICES.md
