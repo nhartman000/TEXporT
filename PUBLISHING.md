@@ -13,12 +13,12 @@ Create an Ubuntu One account at https://snapcraft.io (use the American Milestone
 remote-build uploads the source to Launchpad, where it is public. For a proprietary app, always build on your own machine:
 ```bash
 cd texport
-snapcraft            # produces texport_1.0.0_amd64.snap (first build takes a while)
+snapcraft            # produces texport_1.1.0_amd64.snap (first build takes a while)
 ```
 
 ## 2. Test the snap before releasing
 ```bash
-sudo snap install --dangerous ./texport_1.0.0_amd64.snap
+sudo snap install --dangerous ./texport_1.1.0_amd64.snap
 texport
 ```
 Check this list:
@@ -33,7 +33,7 @@ If screen sharing fails inside the snap but works with `install.sh`, it's a conf
 ```bash
 snapcraft login
 snapcraft register texport
-snapcraft upload --release=stable texport_1.0.0_amd64.snap
+snapcraft upload --release=stable texport_1.1.0_amd64.snap
 ```
 Start on `--release=edge` if you'd like a quiet test channel first. Install it from there with `sudo snap install texport --edge`.
 

@@ -1,0 +1,27 @@
+{
+  "gestalt": "Review budget without inventing an owner",
+  "groups": [
+    {
+      "conditions": [
+        {
+          "marker_ids": [
+            "M1"
+          ],
+          "text": "Confirm the stated 42-unit cap against M1"
+        }
+      ],
+      "label": "Uncategorized",
+      "marker_ids": [
+        "M1",
+        "M2"
+      ],
+      "name": "uncategorized"
+    }
+  ],
+  "icm_version": "1.0",
+  "title": "Illustrative budget review",
+  "variables": {
+    "cap": 42,
+    "owner": null
+  }
+}

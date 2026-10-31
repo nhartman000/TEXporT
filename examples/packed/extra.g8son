@@ -1,0 +1,18 @@
+  {
+  "file_id": "example.owner.file",
+  "g8son_version": "1.0",
+  "gates": [
+    {
+      "conditions": [
+        "Resolve the unknown owner explicitly"
+      ],
+      "gate_id": "example.owner.review",
+      "outcomes": {
+        "FAIL": "stop",
+        "INTERMEDIATE": "review",
+        "PASS": "continue"
+      },
+      "type": "human.review"
+    }
+  ]
+}
