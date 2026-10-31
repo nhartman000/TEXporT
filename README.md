@@ -18,6 +18,7 @@ and exports a handoff document the next AI can't quietly lose. MG8-ready.
 - [Use](#use)
 - [Auto-scroll](#auto-scroll)
 - [Markers and export](#markers-and-export)
+- [ICM / AI organization and single-file packed MG8](PACKED_AUTHORING.md)
 - [The MG8 unit and Verify](#the-mg8-unit-and-verify)
 - [NYCH encoder / mg8-engine handoff](#nych-encoder--mg8-engine-handoff)
 - [Troubleshooting](#troubleshooting)

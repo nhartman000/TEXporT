@@ -192,8 +192,20 @@ class ExportDialog(QDialog):
         lay.addWidget(self.mg8_box)
         lay.addWidget(self.intent)
         lay.addWidget(self.pipe_box)
+        self.icm_button = QPushButton("Export ICM / AI organization / packed MG8…")
+        self.icm_button.setObjectName('icmWorkspaceButton')
+        self.icm_button.clicked.connect(self._open_icm)
+        lay.addWidget(self.icm_button)
         lay.addWidget(bb)
-        self.resize(600, 640)
+        self.resize(600, 680)
+
+    def _open_icm(self):
+        from .workspace_dialog import WorkspaceDialog
+        chosen = [self.sessions[i] for i in range(self.list.count())
+                  if self.list.item(i).checkState() == Qt.CheckState.Checked]
+        # Use the visible capture order for ICM; unlike legacy export, do not silently reverse it.
+        self.icm_dialog = WorkspaceDialog(chosen, self.title.text().strip() or 'Marked conversations', self)
+        self.icm_dialog.show()
 
     def _save(self):
         chosen = [self.sessions[i] for i in range(self.list.count())

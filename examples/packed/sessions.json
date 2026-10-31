@@ -1,0 +1,28 @@
+[
+  {
+    "captured_at": "2026-10-31",
+    "id": "example-capture",
+    "lines": [
+      {
+        "text": "Budget cap is 42 units."
+      },
+      {
+        "text": "An unresolved owner needs human review."
+      }
+    ],
+    "markers": [
+      {
+        "end": 0,
+        "note": "Keep exact cap",
+        "start": 0
+      },
+      {
+        "end": 1,
+        "note": "Owner is unknown",
+        "start": 1
+      }
+    ],
+    "source": "authored example (not AI output)",
+    "title": "Illustrative budget source"
+  }
+]

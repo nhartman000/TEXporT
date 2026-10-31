@@ -1,7 +1,7 @@
 name: texport
 title: TExporT
 base: core24
-version: '1.0.0'
+version: '1.1.0'
 summary: Scroll-capture any window's text, mark what matters, export an AI handoff
 description: |
   TExporT is a floating, see-through panel. You scroll a conversation (Claude
